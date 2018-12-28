@@ -50,7 +50,7 @@ function loadCoords() {
         askForCoords();
     } else {
         const parsedCoords = JSON.parse(loadedCoords);
-        getWeather(parsedCoords.lat, parsedCoords.log);
+        getWeather(parsedCoords.lat, parsedCoords.lon);
     }
 }
 
