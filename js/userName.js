@@ -1,44 +1,39 @@
-const userFormContainer = document.querySelector('.user-name');
-const userInput = userFormContainer.querySelector('input');
-const userText = document.querySelector('.user-name-text');
+const userNameContainer = document.querySelector('.user-name');
+const userNameInput = userNameContainer.querySelector('input');
+const userName = document.querySelector('.user-text');
 
-
-const USER_LS = 'currentUser';
-//chrome application local storage 확인
-
+const Name_LS = 'userName';
 function saveName(name) {
-    localStorage.setItem(USER_LS, name);
+    localStorage.setItem(Name_LS, name);
 }
 
-function hadleSubmit(e) {
-    e.preventDefault(); //submit이 일어나니깐 console이 안됨 >  submit막음, 각 태그의 이벤트동작을 막음
-    // console.log(e);
-    const currentValue = userInput.value;
-    // console.dir(userInput);
-    // console.log(currentValue);
-    paintUser(currentValue);
-    saveName(currentValue);
+function handleSubmit(e) {
+    e.preventDefault();
+    //console.log(userNameInput.value);
+    const nameValue = userNameInput.value;
+    if (nameValue.length !== 0) {
+        saveName(nameValue);
+        paintUser(nameValue);
+    }
 }
 
 function paintUser(name) {
-    userFormContainer.style.display = 'none';
-    userText.style.display = 'block';
-    userText.innerText = `Hello ${name}`;
+    userNameInput.style.display = 'none';
+    userName.style.display = 'block';
+    userName.innerText = `Hello ${name}`;
 }
 
-function askForUser(){
-    userFormContainer.style.display ='block';
-    userFormContainer.addEventListener('submit', hadleSubmit);
-   // userFormContainer.removeEventListener('submit', hadleSubmit);
+function askForUser() {
+    userNameContainer.style.display = 'block';
+    userNameContainer.addEventListener('submit', handleSubmit);
 }
 
 function loadName() {
-    const currentUser = localStorage.getItem(USER_LS);
-
-    if(currentUser === null) {
+    const saveName = localStorage.getItem(Name_LS)
+    if (saveName === null) {
         askForUser();
     } else {
-        paintUser(currentUser);
+        paintUser(saveName);
     }
 }
 
@@ -48,4 +43,13 @@ function init() {
 
 init();
 
-//파일이 달라도 변수명은 달라야함
+//object.querySelector('')
+//localStorage.setItem('KEY','VALUE')
+//localStorate.getItem('KEY')
+//event.preventDefault()
+//object.value
+//object.style.display = ''
+//object.innerText = `STRING ${function}`
+//object.addEventListner('EVENT', function)
+//if...else
+//===
