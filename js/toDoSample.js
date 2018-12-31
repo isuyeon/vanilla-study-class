@@ -1,14 +1,26 @@
 const todoForm = document.querySelector('.todo-form');
 const todoInput = todoForm.querySelector('input');
 const todoList = document.querySelector('.todo-list ul');
+const toDoContainer = document.querySelector('.todo-list');
+const btnResetTodo = toDoContainer.querySelector('.btn-reset');
 
 const TODOS = 'toDos';
 
 let toDos = [];
 
+function handleReset() {
+    while (todoList.firstChild) {
+        todoList.removeChild(todoList.firstChild);
+    }
+    toDos = [];
+    localStorage.removeItem(TODOS);
+    saveToDos();
+}
+
 function filterFn(toDo) {
     return todoForm.id === 1;
 }
+
 function handleClickDelete(e) {
     //console.log(e.dir);
     //console.log(e.target.parentElement)
@@ -57,10 +69,17 @@ function paintTodo(text) {
 
 function handleSubmit(e) {
     e.preventDefault();
-    const currentValue = todoInput.value;
+    const d = new Date();
+    const year = d.getFullYear();
+    const month = d.getMonth() + 1;
+    const date = d.getDate();
+    const currentDate = year + '.' + month + '.' + date
+    const currentValue = currentDate + todoInput.value;
     todoInput.value = '';
     //console.log(currentValue);
-    paintTodo(currentValue);
+    if (currentValue.length !== 0) {
+        paintTodo(currentValue);
+    }
 }
 
 function loadTodos() {
@@ -69,6 +88,7 @@ function loadTodos() {
     if(loadedToDos !== null) {
         //console.log(loadedToDos);
         const parsedToDos = JSON.parse(loadedToDos);
+        //console.log(JSON.parse(loadedToDos));
         parsedToDos.forEach(function(toDo) {
             paintTodo(toDo.text);
         })
@@ -78,7 +98,7 @@ function loadTodos() {
 function init() {
     loadTodos();
     todoForm.addEventListener('submit', handleSubmit);
-    
+    btnResetTodo.addEventListener('click', handleReset);
 }
 
 init();

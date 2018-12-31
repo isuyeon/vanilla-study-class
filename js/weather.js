@@ -4,7 +4,7 @@ const API_KEY = 'eebedd7fbd8382cd1f41f22ae440820e';
 const COORDS = 'coords';
 
 function getWeather(lat, lon) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&icon=${icon}`)
     .then(function(response){
         return response.json();
     })
@@ -12,7 +12,9 @@ function getWeather(lat, lon) {
         console.log(json)
         const temperature = json.main.temp;
         const place = json.name;
-        weather.innerText = '현재날씨: ' + temperature + ', 도시: ' + place;
+        const icon = json.weather[0].icon;
+        console.log(icon)
+        weather.innerText = '현재날씨: ' + icon + temperature + ', 도시: ' + place;
     });
     console.log(lat, lon)
 }

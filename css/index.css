@@ -1,30 +1,86 @@
-* { margin: 0; padding: 0; }
+* {
+  margin: 0;
+  padding: 0;
+}
 
-html, body { width: 100%; height: 100%; }
+html, body {
+  width: 100%;
+  height: 100%;
+}
 
-.ly-container { width: 700px; margin: 0 auto; text-align: center; }
+.ly-container {
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
 
-.clock { text-align: center; }
+.clock {
+  text-align: center;
+}
 
-.clock h1 { font-size: 5rem; }
+.clock h1 {
+  font-size: 5rem;
+}
 
-.user-name { margin: 1rem 0; }
+.user-name {
+  margin: 1rem 0;
+}
 
-.user-name input { width: 50%; height: 2rem; font-size: 1.5rem; }
+.user-name input {
+  width: 50%;
+  height: 2rem;
+  font-size: 1.5rem;
+}
 
-.user-text { display: inline-block; font-size: 2.5rem; font-weight: 500; text-transform: uppercase; }
+.user-text {
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
 
-.todo-form { margin: 1rem 0; }
+.todo-form {
+  margin: 1rem 0;
+}
 
-.todo-form input { width: 50%; height: 2rem; font-size: 1.5rem; }
+.todo-form input {
+  width: 50%;
+  height: 2rem;
+  font-size: 1.5rem;
+}
 
-.bg-image { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: 100% 50%; z-index: -1; background-color: gray; }
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: 100% 50%;
+  z-index: -1;
+  background-color: gray;
+}
 
-.fadeIn { -webkit-animation: .5s ease-in-out fadeIn; animation: .5s ease-in-out fadeIn; }
+.fadeIn {
+  -webkit-animation: .5s ease-in-out fadeIn;
+          animation: .5s ease-in-out fadeIn;
+}
 
-@-webkit-keyframes fadeIn { from { opacity: 0; }
-  to { opacity: 1; } }
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
-@keyframes fadeIn { from { opacity: 0; }
-  to { opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /*# sourceMappingURL=index.css.map */
